@@ -6,12 +6,13 @@ Using ChiPs UAE4ARM v0.4 for RPI https://github.com/Chips-fr/uae4arm-rpi
 
 Installation
 --------------
+- mount / in rw 'mount -o remount, rw /'
 - copy the contents of /libs into /lib
 - copy /emulateurs to /recalbox/share
 - give chmod 755 to every script files in /recalbox/share/emulateurs
 - verify that /recalbox/share/emulateurs/amiga/uae4arm/uae4arm has 755 rights
 - mkdir ram at /recalbox/share (this will be used by the script has a ram drive)
-- integration with EmulationStation : modify the es_systems.cfg file in /recalbox/share_init/.emulationstation (needs to change partition / to read and write) and add the following system :
+- integration with EmulationStation : modify the es_systems.cfg file in /recalbox/share_init/system/.emulationstation (needs to change partition / to read and write) and add the following system :
    ```xml
    
    <system>
@@ -44,7 +45,7 @@ Just copy them to your amiga roms folder, if the game uses several ADF, make sur
 WHD games in direct mode
 ------------------------
 - unzip them, delete the .info file at the same level than the folder, copy to your roms folder or subfolder
-- you'll need a custom .uae file at the same level than the folder with the same name, generate one (genUAE.sh /recalbox/share/roms/amiga will generate an uae for every folder in the amiga roms folders, you can off course use subfolders), you can also simply copy and rename one of the sample whd uae file from recalbox/share/emulateurs
+- you'll need a custom .uae file at the same level than the folder with the same name, generate one ( /recalbox/share/emulateurs/genUAE.sh /recalbox/share/roms/amiga1200 will generate an uae for every folder in the amiga roms folders, you can off course use subfolders), you can also simply copy and rename one of the sample whd uae file from recalbox/share/emulateurs
 
 KNOWN BUGS
 ------------
@@ -53,6 +54,7 @@ KNOWN BUGS
 - aspect ratio and image centering : you'll have to modify your uaes manually for the moment, for parameters force_aspectratio use true if you're in widescreen (16/9) or false in 4/3, next two parameters for centering should be put to simple
 - only one joystick supported at the moment
 - CD32 isos not usable for the time beeing
+- after generate .uae file for vhd games this parameter ar wrong (pandora.hardfile_path=/recalbox/share/roms/amiga/)
 
 COMING SOON
 -------------
